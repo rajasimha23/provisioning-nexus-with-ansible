@@ -51,3 +51,63 @@ Run:
 ```
 
 This script contains the equivalent raw commands for manual Nexus installation.
+
+
+# Roadmap
+
+Automate systemd service for Nexus
+
+Add reverse proxy configuration (NGINX/Apache)
+
+SSL/TLS support
+
+
+# Node.js Application Deployment with Ansible
+
+This project includes an **Ansible playbook** to deploy a Node.js application on a Linux server.
+
+
+## Files
+```
+├── deploy-node.yaml # Ansible playbook to deploy Node.js app
+├── project.vars # Variables file (optional)
+├── hosts # Ansible inventory file
+```
+
+## Prerequisites
+- Linux host (tested on Ubuntu/Debian)  
+- [Ansible](https://docs.ansible.com/) ≥ 2.9  
+- Node.js application packaged as a `.tgz` file  
+- SSH access and sudo privileges  
+
+## Usage
+
+### 1. Configure Inventory
+Edit the `hosts` file with your target server(s).
+
+### 2. Update Playbook Variables
+In `deploy-node.yaml`, replace placeholders:
+- `X.X.X.X` → your server’s IP  
+- `Username` → desired Linux user for running the app  
+- `path_to_folder` → path to your `.tgz` Node.js app  
+
+### 3. Run the Playbook
+```
+ansible-playbook -i hosts deploy-node.yaml
+```
+
+
+This will:
+
+- Install Node.js and npm
+
+- Create a Linux user for the app
+
+- Extract your Node.js app
+
+- Install dependencies using npm
+
+- Start the app in the background
+
+- Verify the app is running
+
