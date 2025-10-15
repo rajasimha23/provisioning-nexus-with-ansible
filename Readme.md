@@ -4,13 +4,13 @@ This project contains an **Ansible playbook** and a **shell script** to automate
 
 ## Files
 ```
-├── deploy-nexus.yaml # Ansible playbook for Nexus deployment
-├── nexus.sh # Raw shell commands for manual setup
-├── project.vars # Variables file (optional for customization)
+├── deploy-nexus.yaml #Ansible playbook for Nexus deployment
+├── nexus.sh #Raw shell commands for manual setup
+├── project.vars 
 ├── hosts # Ansible inventory file
 ```
 
-## Prerequisites
+### Prerequisites
 - Linux host (tested on Ubuntu/Debian)  
 - [Ansible](https://docs.ansible.com/) ≥ 2.9  
 - Python ≥ 3.x  
@@ -34,64 +34,51 @@ ansible-playbook -i hosts deploy-nexus.yaml
 This will:
 
 - Install Java and net-tools
-
 - Download and extract Nexus
-
 - Create a nexus user and set permissions
-
 - Configure Nexus to run as the nexus user
-
 - Start Nexus and verify it is running
 
 ### 3. Manual Deployment (Optional)
+
+This script contains the equivalent raw commands for manual Nexus installation.
 
 Run:
 ```
 ./nexus.sh
 ```
 
-This script contains the equivalent raw commands for manual Nexus installation.
 
-
-# Roadmap
-
-Automate systemd service for Nexus
-
-Add reverse proxy configuration (NGINX/Apache)
-
-SSL/TLS support
-
-
-# Node.js Application Deployment with Ansible
+## Node.js Application Deployment
 
 This project includes an **Ansible playbook** to deploy a Node.js application on a Linux server.
 
 
-## Files
+### Files
 ```
 ├── deploy-node.yaml # Ansible playbook to deploy Node.js app
-├── project.vars # Variables file (optional)
+├── project.vars 
 ├── hosts # Ansible inventory file
 ```
 
-## Prerequisites
+### Prerequisites
 - Linux host (tested on Ubuntu/Debian)  
 - [Ansible](https://docs.ansible.com/) ≥ 2.9  
 - Node.js application packaged as a `.tgz` file  
 - SSH access and sudo privileges  
 
-## Usage
+### Usage
 
-### 1. Configure Inventory
+#### 1. Configure Inventory
 Edit the `hosts` file with your target server(s).
 
-### 2. Update Playbook Variables
+#### 2. Update Playbook Variables
 In `deploy-node.yaml`, replace placeholders:
 - `X.X.X.X` → your server’s IP  
 - `Username` → desired Linux user for running the app  
 - `path_to_folder` → path to your `.tgz` Node.js app  
 
-### 3. Run the Playbook
+#### 3. Run the Playbook
 ```
 ansible-playbook -i hosts deploy-node.yaml
 ```
@@ -100,13 +87,8 @@ ansible-playbook -i hosts deploy-node.yaml
 This will:
 
 - Install Node.js and npm
-
 - Create a Linux user for the app
-
 - Extract your Node.js app
-
 - Install dependencies using npm
-
 - Start the app in the background
-
 - Verify the app is running
