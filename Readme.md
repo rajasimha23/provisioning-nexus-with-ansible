@@ -16,9 +16,9 @@ This project contains an **Ansible playbook** and a **shell script** to automate
 - Python ≥ 3.x  
 - SSH access and sudo privileges  
 
-## Usage
+### Usage
 
-### 1. Configure Inventory
+#### 1. Configure Inventory
 Edit the `hosts` file:
 ```
 [nexus_server]
@@ -26,7 +26,7 @@ Edit the `hosts` file:
 ```
 
 
-### 2. Run the Playbook
+#### 2. Run the Playbook
 ```
 ansible-playbook -i hosts deploy-nexus.yaml
 ```
@@ -82,7 +82,6 @@ In `deploy-node.yaml`, replace placeholders:
 ```
 ansible-playbook -i hosts deploy-node.yaml
 ```
-
 
 This will:
 
